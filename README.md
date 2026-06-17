@@ -34,7 +34,7 @@ brew install chezmoi
 ### 3. 初始化 dotfiles
 
 ```bash
-chezmoi init git@github.com:luzhenyuat-stack/auto-workstation.git
+chezmoi init git@github.com:l00-ai-workstation/auto-workstation.git
 ```
 
 ### 4. 预览变更
