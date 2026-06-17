@@ -1,6 +1,38 @@
 # Auto-WorkStation
 
-基于 [chezmoi](https://chezmoi.io) 的个人开发环境配置仓库。
+一个基于 chezmoi 的 macOS AI 开发工作站初始化仓库。
+
+它可以帮助你在新 Mac 上快速恢复一致的开发环境，包括：
+
+- Homebrew
+- Git
+- Zsh
+- VS Code
+- Python（pyenv）
+- Node.js（nvm）
+- Java（SDKMAN!）
+- API Key 管理
+- AI 开发工具配置
+
+## Quick Start
+
+首次使用，仅需几条命令即可完成开发环境初始化：
+
+```bash
+brew install chezmoi
+chezmoi init https://github.com/l00-ai-workstation/Auto-WorkStation.git
+chezmoi apply
+```
+
+## Features
+
+- 🍺 Homebrew 软件恢复
+- 🐍 Python 环境（pyenv）
+- 🟢 Node.js 环境（nvm）
+- ☕ Java 环境（SDKMAN!）
+- ⚙️ Git 配置同步
+- 💻 VS Code 配置同步
+- 🔑 API Key 本地隔离
 
 ## 适用环境
 
@@ -17,7 +49,7 @@
 | 编辑器 | VSCode `settings.json` — Python + 终端 | `Library/.../settings.json` |
 | 包管理 | Homebrew 完整恢复清单 | `Brewfile` |
 
-## 快速开始
+## 安装与配置
 
 ### 1. 安装 Homebrew（如未安装）
 
@@ -33,8 +65,16 @@ brew install chezmoi
 
 ### 3. 初始化 dotfiles
 
+推荐使用 HTTPS（无需配置 SSH）：
+
 ```bash
-chezmoi init git@github.com:l00-ai-workstation/auto-workstation.git
+chezmoi init https://github.com/l00-ai-workstation/Auto-WorkStation.git
+```
+
+如果已经配置了 GitHub SSH Key，也可以使用：
+
+```bash
+chezmoi init git@github.com:l00-ai-workstation/Auto-WorkStation.git
 ```
 
 ### 4. 预览变更
@@ -105,11 +145,16 @@ shell 启动
 | 🟡 用户身份 | `.gitconfig` 中 email 为新机手动修改项 |
 | 🟢 版本管理器 | `.nvm/`、`.pyenv/`、`.sdkman/` 运行时数据不入仓 |
 
+## Documentation
+
+项目维护文档：
+- [Phase 1 完整实施记录](docs/Phase1.md)
+  - 实施步骤
+  - 踩坑记录
+  - 维护流程
+  - 灾难恢复
+  - 版本升级策略
+
 ## 许可证
 
 MIT
-
-## Documentation
-
-项目长期维护文档：
-- [Phase 1 完整实施记录](docs/Phase1.md)—— 详细步骤、踩坑记录、维护流程、灾难恢复、版本升级策略
