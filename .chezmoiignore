@@ -47,3 +47,4 @@
 # === 仓库自身文档/配置，不部署到 $HOME ===
 README.md
 Brewfile
+docs/

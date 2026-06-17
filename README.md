@@ -108,3 +108,8 @@ shell 启动
 ## 许可证
 
 MIT
+
+## Documentation
+
+项目长期维护文档：
+- [Phase 1 完整实施记录](docs/Phase1.md)—— 详细步骤、踩坑记录、维护流程、灾难恢复、版本升级策略
