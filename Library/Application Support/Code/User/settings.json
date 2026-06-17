@@ -1,0 +1,19 @@
+{
+    // === Python 虚拟环境自动识别 ===
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.locator.searchPaths": [
+        "${workspaceFolder}/.venv"
+    ],
+
+    // === 终端：清空启动参数，继承 nvm/sdkman 环境 ===
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "/bin/zsh",
+            "args": []
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "claudeCode.preferredLocation": "panel"
+}

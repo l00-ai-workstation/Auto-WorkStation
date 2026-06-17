@@ -1,0 +1,55 @@
+# ==========================================
+# 1. AI 终端原生多模型网络
+# ==========================================
+alias ds="claude --model deepseek-chat"
+alias mor1="ollama run deepseek-r1:8b"
+alias moqw3="ollama run qwen3-vl:8b"
+alias moqw25="ollama run qwen2.5:7b"
+
+# ==========================================
+# 2. 安全特权层
+# ==========================================
+[[ -f ~/.api_keys ]] && source ~/.api_keys
+
+if [[ -n "$DEEPSEEK_API_KEY" ]]; then
+    export ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
+    export ANTHROPIC_AUTH_TOKEN="$DEEPSEEK_API_KEY"
+    export ANTHROPIC_MODEL="deepseek-v4-pro[1m]"
+    export ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro[1m]"
+    export ANTHROPIC_DEFAULT_SONNET_MODEL="deepseek-v4-pro[1m]"
+    export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-v4-flash"
+fi
+
+# ==========================================
+# 3. 系统底层基建与清华大学镜像加速
+# ==========================================
+[[ -d "$HOME/Library/Python/3.9/bin" ]] && export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+export HOMEBREW_BREW_GIT_REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+export HOMEBREW_CORE_GIT_REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+
+# ==========================================
+# 4. pyenv 纯净 Python 隔离配置
+# ==========================================
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+    export PATH="$PYENV_ROOT/shims:$PATH"
+fi
+
+# ==========================================
+# 5. nvm 纯净 Node 环境隔离配置
+# ==========================================
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node/
+
+# ==========================================
+# 6. SDKMAN! 深度环境配置（严格锁定在文件最末尾）
+# ==========================================
+export SDKMAN_DIR="$HOME/.sdkman"
+export sdkman_auto_env=true
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

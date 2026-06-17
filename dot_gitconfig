@@ -1,0 +1,27 @@
+[user]
+    name = Loo
+    email = your@email.com
+
+[core]
+    editor = vim
+    autocrlf = input
+    quotepath = false
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    df = diff
+    lg = log --oneline --graph --all --decorate
+    unstage = reset HEAD --
+    last = log -1 HEAD

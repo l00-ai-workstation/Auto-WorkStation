@@ -1,0 +1,46 @@
+# === 操作系统垃圾文件 ===
+.DS_Store
+*.swp
+*.swo
+*~
+
+# === 由系统/工具自动生成 ===
+.zcompdump*
+.zsh_history
+.bash_history
+.python_history
+.viminfo
+.lesshst
+
+# === Claude Code 会话数据 ===
+.claude.json
+.claude/backups/
+.claude/history.jsonl
+.claude/sessions/
+.claude/telemetry/
+.claude/shell-snapshots/
+.claude/projects/
+.claude/ide/
+.claude/plans/
+.claude/session-env/
+.claude/settings.local.json
+.claude/cache/
+
+# === 安全敏感文件（严禁入仓） ===
+.api_keys
+.ssh/
+.gnupg/
+.aws/
+.netrc
+.npmrc
+.docker/
+.kube/
+
+# === macOS 系统文件 ===
+.CFUserTextEncoding
+.zprofile
+
+# === 版本管理器运行时数据（不托管） ===
+.nvm/
+.pyenv/
+.sdkman/
