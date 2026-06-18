@@ -44,12 +44,15 @@ mkdir ~/Auto-WorkStation
 cd ~/Auto-WorkStation
 git init
 git remote add origin git@github.com:l00-ai-workstation/Auto-WorkStation.git
+```
 注：计划原定仓库名为 dotfiles，实际使用了 Auto-WorkStation。功能等价。
 
 ### Step 1.2 安装 chezmoi
-bash
+
+```bash
 brew install chezmoi
 chezmoi --version  # 验证：v2.70.5
+```
 注：计划原方案是 sh -c "$(curl -fsLS get.chezmoi.io)"，实际通过 brew 安装，效果相同。
 
 Step 1.3 环境审计（额外步骤）
