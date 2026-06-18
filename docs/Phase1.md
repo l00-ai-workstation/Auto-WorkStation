@@ -66,6 +66,7 @@ Homebrew 仅装了必要独立工具，无全局污染
 主要工作是剥离 .zshrc 中的敏感信息
 
 ### Step 1.4 生成配置文件（手工审核4轮，共v1-v4）
+
 纳入 chezmoi 管理的文件：
 
 文件	chezmoi 源文件	部署目标
@@ -95,13 +96,14 @@ mkdir -p ~/.ssh
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 然后生成密钥并添加到 GitHub：
 
-bash
+```bash
 ssh-keygen -t ed25519 -C "l00lab"
 cat ~/.ssh/id_ed25519.pub  # 复制公钥
+```
 # GitHub → Settings → SSH and GPG keys → New SSH key → 粘贴
 验证后推送：
 
-bash
+```bash
 ssh -T git@github.com  # 应显示：Hi l00lab! You've successfully authenticated...
 git add .
 git commit -m "Initial Auto-WorkStation setup"
@@ -110,6 +112,7 @@ Step 1.6 chezmoi init 并应用
 bash
 # 将 GitHub 仓库克隆到 ~/.local/share/chezmoi
 chezmoi init git@github.com:l00-ai-workstation/Auto-WorkStation.git
+```
 
 # 发现问题：Brewfile、README.md 和 docs/ 会被错误部署到 $HOME
 # 原因：chezmoi 会把源目录里没有 dot_ 前缀的文件都视为要部署的 dotfile
