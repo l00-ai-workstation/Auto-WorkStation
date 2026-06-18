@@ -56,6 +56,7 @@ chezmoi --version  # 验证：v2.70.5
 注：计划原方案是 sh -c "$(curl -fsLS get.chezmoi.io)"，实际通过 brew 安装，效果相同。
 
 Step 1.3 环境审计（额外步骤）
+
 在生成配置文件之前，先让 Claude Code 对当前环境做了完整审计，输出 A-G 七部分报告，导出为 环境审计报告.docx。审计结论：
 
 三大版本管理器（pyenv/nvm/sdkman）正确隔离运行时
