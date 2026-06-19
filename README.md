@@ -148,7 +148,8 @@ shell 启动
 ## Documentation
 
 项目维护文档：
-- [Phase 1 完整实施记录](docs/Phase1.md)
+
+- [Phase 1 完整实施记录](docs/Phase%201%20%E2%80%94%20Dotfiles%20as%20Code.md)
   - 实施步骤
   - 踩坑记录
   - 维护流程
