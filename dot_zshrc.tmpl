@@ -29,15 +29,11 @@ export HOMEBREW_CORE_GIT_REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/homebre
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 
 # ==========================================
-# 4. pyenv 纯净 Python 隔离配置
+# 4. SDKMAN! 深度环境配置（最先加载，路径会被后面的工具顶到右侧）
 # ==========================================
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-
-if command -v pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-    export PATH="$PYENV_ROOT/shims:$PATH"
-fi
+export SDKMAN_DIR="$HOME/.sdkman"
+export sdkman_auto_env=true
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # ==========================================
 # 5. nvm 纯净 Node 环境隔离配置
@@ -48,8 +44,15 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node/
 
 # ==========================================
-# 6. SDKMAN! 深度环境配置（严格锁定在文件最末尾）
+# 6. pyenv 纯净 Python 隔离配置（最后加载，抢占 PATH 最左端）
 # ==========================================
-export SDKMAN_DIR="$HOME/.sdkman"
-export sdkman_auto_env=true
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d "$PYENV_ROOT/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init --path)"   # 接管 PATH（关键！把 shims 顶到最前面）
+    eval "$(pyenv init -)"        # 启用 shell 补全
+fi
+
+export EDITOR=nano
+export VISUAL=nano
+
